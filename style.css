@@ -19,6 +19,7 @@ html {
 
 body {
   font-family: Arial;
+  overflow-x: hidden;
 }
 
 section {
@@ -28,6 +29,10 @@ section {
 .container {
   max-width: 120rem;
   margin: 0 auto;
+}
+
+.marginLa {
+  margin-bottom: 2rem;
 }
 
 /* NavBar */
@@ -90,6 +95,7 @@ section {
   top: 4.5rem;
   background-color: #e2e2e2;
   width: 200rem;
+  z-index: 4;
   /* transition: all 1s ease-in-out; */
 }
 
@@ -120,6 +126,84 @@ section {
 
 .burger--icon {
   display: none;
+}
+
+/* MainSection */
+
+.slider {
+  width: 100%;
+  height: 120vh;
+  background: center / cover no-repeat url("img/heroImg1.png");
+  position: relative;
+}
+
+.slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.articles--link {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  z-index: 3;
+}
+
+.articles--link div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.articles--link h2 {
+  font-size: 4rem;
+}
+
+.articles--link p {
+  font-size: 1.8rem;
+  margin: 4rem 0;
+  font-weight: 500;
+}
+
+.articles--link button {
+  background-color: #d93857;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 500;
+  line-height: 1;
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 1.5rem 3rem;
+}
+
+.slider .fas {
+  position: absolute;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.slider .fa-chevron-left {
+  top: 50%;
+  left: 2%;
+}
+
+.slider .fa-chevron-right {
+  top: 50%;
+  right: 3%;
 }
 
 @media all and (max-width: 968px) {
