@@ -21,6 +21,10 @@ body {
   font-family: Arial;
 }
 
+section {
+  width: 100vw;
+}
+
 .container {
   max-width: 120rem;
   margin: 0 auto;
@@ -113,12 +117,8 @@ body {
 .drop--icon {
   vertical-align: top;
 }
-/* 
-.nav--menu--link:hover .menuList--drop {
-  display: block;
-} */
 
-.nav--logo--icon {
+.burger--icon {
   display: none;
 }
 
@@ -131,11 +131,31 @@ body {
     margin-right: auto;
   }
 
-  .nav--logo--icon {
+  .burger--icon {
     display: block;
     font-size: 1.4rem;
     margin: 0 2rem 3rem 0;
     cursor: pointer;
+  }
+
+  .burger--icon > div {
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: var(--brand-color);
+    margin-top: 0.3rem;
+    transition: transform 0.3s linear;
+  }
+
+  .burger--icon.active .line1 {
+    transform: rotate(-405deg) translateY(7px);
+  }
+
+  .burger--icon.active .line2 {
+    opacity: 0;
+  }
+
+  .burger--icon.active .line3 {
+    transform: rotate(405deg) translateY(-7px);
   }
 
   .nav--menu {

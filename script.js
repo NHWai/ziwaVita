@@ -1,6 +1,6 @@
 "use strict";
 
-const iconMenu = document.querySelector(".nav--logo--icon");
+const iconMenu = document.querySelector(".burger--icon");
 const menu = document.querySelector(".nav--menu");
 const iconDown = document.querySelector(".drop");
 const dropdown = document.querySelector(".menuList--drop");
@@ -11,6 +11,7 @@ iconDown.addEventListener("click", function () {
 
 iconMenu.addEventListener("click", function () {
   menu.classList.toggle("show");
+  iconMenu.classList.toggle("active");
 });
 
 /* Prevent transition while resizing the page */
