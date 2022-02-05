@@ -13,14 +13,13 @@ iconMenu.addEventListener("click", function () {
   menu.classList.toggle("show");
 });
 
-function myFunction(x) {
-  if (x.matches) {
-    // If media query matches
-  } else {
-    menu.classList.remove("show");
-  }
-}
+/* Prevent transition while resizing the page */
 
-var x = window.matchMedia("(max-width: 968px)");
-myFunction(x); // Call listener function at run time
-x.addListener(myFunction); // Attach listener function on state changes
+let resizeTimer;
+window.addEventListener("resize", () => {
+  document.body.classList.add("resize-animation-stopper");
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    document.body.classList.remove("resize-animation-stopper");
+  }, 400);
+});
