@@ -22,10 +22,6 @@ body {
   overflow-x: hidden;
 }
 
-section {
-  width: 100vw;
-}
-
 .container {
   max-width: 120rem;
   margin: 0 auto;
@@ -156,14 +152,10 @@ section {
   text-decoration: none;
   text-align: center;
   color: #fff;
-  z-index: 3;
-}
-
-.articles--link div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   z-index: 3;
 }
 
@@ -173,8 +165,8 @@ section {
 
 .articles--link p {
   font-size: 1.8rem;
-  margin: 4rem 0;
   font-weight: 500;
+  margin: 4rem 0;
 }
 
 .articles--link button {
@@ -186,6 +178,7 @@ section {
   font-size: 1.5rem;
   color: #fff;
   padding: 1.5rem 3rem;
+  cursor: pointer;
 }
 
 .slider .fas {
@@ -203,7 +196,7 @@ section {
 
 .slider .fa-chevron-right {
   top: 50%;
-  right: 3%;
+  right: 2%;
 }
 
 @media all and (max-width: 968px) {
