@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@400;600&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --brand-color: rgb(45, 55, 126);
+}
+
+html {
+  font-size: 62.5%;
+  /* font-size: 10px */
+}
+
+body {
+  font-family: Arial;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+/* NavBar */
+
+.nav {
+  width: 100vw;
+  display: flex;
+  align-items: flex-end;
+  /* background-color: lightgray; */
+}
+
+.nav--logo--img {
+  width: 14rem;
+}
+
+.nav--logo--tag {
+  font-family: "Saira Semi Condensed";
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--brand-color);
+}
+
+.nav--logo {
+  display: flex;
+  align-items: flex-end;
+  padding: 1.4rem;
+  margin-right: auto;
+}
+
+.nav--menu {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  margin-right: 10rem;
+  transition: display 0.6s ease-in-out;
+}
+
+.nav--menu--link {
+  margin-right: 3rem;
+  position: relative;
+  padding: 1rem;
+}
+
+.nav--menu--link:hover {
+  border-bottom: 0.3rem solid red;
+}
+
+.nav--menu--link > a {
+  text-decoration: none;
+  font-family: "Roboto";
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-color);
+}
+
+.menuList--drop {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 4.5rem;
+  background-color: #e2e2e2;
+  width: 200rem;
+  /* transition: all 1s ease-in-out; */
+}
+
+.menuList--drop > li {
+  list-style-type: none;
+  padding: 1.5rem;
+}
+
+.menuList--drop > li:hover {
+  background-color: red;
+}
+
+.menuList--drop > li:hover a {
+  color: #fff;
+}
+
+.menuList--drop > li > a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-family: "Roboto";
+  color: var(--brand-color);
+}
+
+.drop--icon {
+  vertical-align: top;
+}
+/* 
+.nav--menu--link:hover .menuList--drop {
+  display: block;
+} */
+
+.nav--logo--icon {
+  display: none;
+}
+
+@media all and (max-width: 968px) {
+  .nav {
+    display: block;
+  }
+
+  .nav--logo--tag {
+    margin-right: auto;
+  }
+
+  .nav--logo--icon {
+    display: block;
+    font-size: 1.4rem;
+    margin: 0 2rem 3rem 0;
+    cursor: pointer;
+  }
+
+  .nav--menu {
+    display: none;
+    width: 100vw;
+    background-color: #e2e2e2;
+  }
+
+  .nav--menu--link {
+    position: static;
+    padding: 0;
+  }
+
+  .a {
+    display: block;
+    padding: 1rem;
+  }
+
+  .nav--menu--link:hover .a {
+    background-color: lightgreen;
+    width: 100vw;
+  }
+
+  .menuList--drop {
+    position: static;
+    /* display: none; */
+  }
+
+  .nav--menu--link:hover {
+    border: none;
+  }
+}
+
+.show {
+  display: block;
+  /* visibility: none; */
+}
+
+.block {
+  display: block;
+}
