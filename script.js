@@ -28,6 +28,7 @@ window.addEventListener("resize", () => {
 /* Articles Slider*/
 
 const articles = document.querySelectorAll(".articles--link");
+const articlesContainer = document.querySelector(".articles--container");
 const leftArrow = document.querySelector(".articles .fa-chevron-left");
 const rightArrow = document.querySelector(".articles .fa-chevron-right");
 
@@ -35,31 +36,40 @@ let currSlide = 0;
 articles.forEach((a, i) => (a.style.transform = `translateX(${100 * i}%)`));
 
 const nextSlide = () => {
-  rightArrow.addEventListener("click", () => {
-    currSlide++;
-    if (currSlide >= articles.length) currSlide = 0;
-    articles.forEach(
-      (a, i) => (a.style.transform = `translateX(${100 * (i - currSlide)}%)`)
-    );
-  });
+  currSlide++;
+  if (currSlide >= articles.length) currSlide = 0;
+  articles.forEach(
+    (a, i) => (a.style.transform = `translateX(${100 * (i - currSlide)}%)`)
+  );
 };
 
 const prevSlide = () => {
-  leftArrow.addEventListener("click", () => {
-    currSlide--;
-    if (currSlide < 0) currSlide = articles.length - 1;
-    articles.forEach(
-      (a, i) => (a.style.transform = `translateX(${100 * (i - currSlide)}%)`)
-    );
-  });
+  currSlide--;
+  if (currSlide < 0) currSlide = articles.length - 1;
+  articles.forEach(
+    (a, i) => (a.style.transform = `translateX(${100 * (i - currSlide)}%)`)
+  );
 };
 
-nextSlide();
-// setInterval(() => {
-//   currSlide--;
-//   if (currSlide < 0) currSlide = articles.length - 1;
-//   articles.forEach(
-//     (a, i) => (a.style.transform = `translateX(${100 * (i - currSlide)}%)`)
-//   );
-// }, 7000);
-prevSlide();
+const timeout = setInterval(() => {
+  currSlide++;
+  if (currSlide >= articles.length) currSlide = 0;
+  articles.forEach(
+    (a, i) => (a.style.transform = `translateX(${100 * (i - currSlide)}%)`)
+  );
+}, 7000);
+
+window.addEventListener("load", () => {
+  console.log("hayy");
+});
+
+// clearInterval(timeout);
+
+rightArrow.addEventListener("click", function () {
+  nextSlide();
+  clearInterval(timeout);
+});
+leftArrow.addEventListener("click", function () {
+  prevSlide();
+  clearInterval(timeout);
+});
