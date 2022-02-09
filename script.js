@@ -27,49 +27,55 @@ window.addEventListener("resize", () => {
 
 /* Articles Slider*/
 
-const articles = document.querySelectorAll(".articles--link");
+const articles = document.querySelectorAll(".articles--content");
 const articlesContainer = document.querySelector(".articles--container");
-const leftArrow = document.querySelector(".articles .fa-chevron-left");
-const rightArrow = document.querySelector(".articles .fa-chevron-right");
+const carousel = document.querySelector(".carousel");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+let direction;
 
-articles.forEach((a, i) => (a.style.transform = `translateX(${100 * i}%)`));
-
-let currSlide = 0;
-
-const nextSlide = () => {
-  currSlide++;
-  if (currSlide >= articles.length) currSlide = 0;
-  articles.forEach(
-    (a, i) => (a.style.transform = `translateX(${100 * (i - currSlide)}%)`)
-  );
+const prevF = () => {
+  if (direction === -1) {
+    articlesContainer.appendChild(articlesContainer.firstElementChild);
+    direction = 1;
+  }
+  direction = 1;
+  carousel.style.justifyContent = "flex-end";
+  articlesContainer.style.transform = "translateX(33.33%)";
 };
 
-const prevSlide = () => {
-  currSlide--;
-  if (currSlide < 0) currSlide = articles.length - 1;
-  articles.forEach(
-    (a, i) => (a.style.transform = `translateX(${100 * (i - currSlide)}%)`)
-  );
+const nextF = () => {
+  if (direction === 1) {
+    articlesContainer.prepend(articlesContainer.lastElementChild);
+    direction = -1;
+  }
+  direction = -1;
+  carousel.style.justifyContent = "flex-start";
+  articlesContainer.style.transform = "translateX(-33.33%)";
 };
 
-const timeout = setInterval(() => {
-  currSlide++;
-  if (currSlide >= articles.length) currSlide = 0;
-  articles.forEach(
-    (a, i) => (a.style.transform = `translateX(${100 * (i - currSlide)}%)`)
-  );
-}, 7000);
+articlesContainer.addEventListener("transitionend", () => {
+  if (direction === -1) {
+    articlesContainer.appendChild(articlesContainer.firstElementChild);
+  } else if (direction === 1) {
+    articlesContainer.prepend(articlesContainer.lastElementChild);
+  }
 
-window.addEventListener("load", () => {
-  console.log("hayy");
+  articlesContainer.style.transition = "none";
+  articlesContainer.style.transform = "translateX(0)";
+  setTimeout(() => {
+    articlesContainer.style.transition = " transform 0.5s ease";
+  });
 });
 
-rightArrow.addEventListener("click", function () {
-  nextSlide();
+const timeout = setInterval(nextF, 4000);
+
+prev.addEventListener("click", () => {
+  prevF();
   clearInterval(timeout);
 });
-leftArrow.addEventListener("click", function () {
-  prevSlide();
+next.addEventListener("click", () => {
+  nextF();
   clearInterval(timeout);
 });
 
@@ -141,7 +147,7 @@ const artFunc = function () {
 
   container.forEach((el) => {
     const html = `
-      <div class="latestarticles--card">
+      <div class="latestarticles--card ">
       <img src="${el.img}.png" />
       <p class="descriptionSM">${el.header}</p>
       <p class="date">${el.date}</p>
@@ -153,6 +159,7 @@ const artFunc = function () {
   });
 
   coreContainer.insertAdjacentElement("beforeend", cardContainer);
+  console.log(document.querySelectorAll(".latestarticles--card"));
 };
 
 artFunc();
