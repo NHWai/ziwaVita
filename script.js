@@ -133,7 +133,19 @@ const container = [
   },
   {
     img: "img/latestarticlesImg3",
-    header: "မျိုးဆက်ပွားကျန်းမာရေးဆိုင်ရာ ဆောင်းပါးများ",
+    header: " 1 မျိုးဆက်ပွားကျန်းမာရေးဆိုင်ရာ ဆောင်းပါးများ",
+    date: "05 December 2021",
+    description: "DMPA-SC ကိုဘာကြောင့်အသုံးပြုသင့်သလဲ",
+  },
+  {
+    img: "img/latestarticlesImg3",
+    header: " 2 မျိုးဆက်ပွားကျန်းမာရေးဆိုင်ရာ ဆောင်းပါးများ",
+    date: "05 December 2021",
+    description: "DMPA-SC ကိုဘာကြောင့်အသုံးပြုသင့်သလဲ",
+  },
+  {
+    img: "img/latestarticlesImg3",
+    header: " 3 မျိုးဆက်ပွားကျန်းမာရေးဆိုင်ရာ ဆောင်းပါးများ",
     date: "05 December 2021",
     description: "DMPA-SC ကိုဘာကြောင့်အသုံးပြုသင့်သလဲ",
   },
@@ -163,3 +175,47 @@ const artFunc = function () {
 };
 
 artFunc();
+
+const latestArContainer = document.querySelector(
+  ".latestarticles--cardcontainer"
+);
+let latestArCard = document.querySelectorAll(".latestarticles--card");
+
+const firstClone = latestArCard[0].cloneNode(true);
+const secondClone = latestArCard[1].cloneNode(true);
+const thirdClone = latestArCard[2].cloneNode(true);
+firstClone.id = "first-clone";
+
+latestArContainer.append(firstClone);
+latestArContainer.append(secondClone);
+latestArContainer.append(thirdClone);
+
+let currSlide = 0;
+
+let wide = window.innerWidth;
+
+function setTransform() {
+  if (wide < 1090 && wide > 768) {
+    latestArContainer.style.transform = `translateX(-${currSlide * 33}rem)`;
+  } else if (wide < 768) {
+    latestArContainer.style.transform = `translateX(-${currSlide * 100}%)`;
+  } else {
+    latestArContainer.style.transform = `translateX(-${currSlide * 39}rem)`;
+  }
+}
+
+setInterval(() => {
+  currSlide++;
+  latestArContainer.style.transition = "0.5s ease";
+  setTransform();
+}, 3000);
+
+latestArContainer.addEventListener("transitionend", () => {
+  latestArCard = document.querySelectorAll(".latestarticles--card");
+  if (latestArCard[currSlide].id === firstClone.id) {
+    latestArContainer.style.transition = "none";
+    currSlide = 0;
+    setTransform();
+    setTimeout(() => (latestArContainer.style.transition = "0.5s ease"));
+  }
+});
