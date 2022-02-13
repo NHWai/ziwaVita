@@ -515,6 +515,118 @@ section {
   letter-spacing: 1.5px;
 }
 
+/* ------------About Page ------------------------- */
+
+.abt-hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.abt-hero .secondaryHeader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.abt-hero-overlay::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("img/imgAbt.png") center / cover no-repeat;
+}
+
+.abt {
+  background-color: #f2faff;
+}
+
+.abt .container {
+  padding: 4rem 0;
+}
+
+.abt-main {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.abt-main-img,
+.abt-main-description {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.abt-main-img img {
+  width: 90%;
+  height: 90%;
+}
+
+.abt-main-description p {
+  max-width: 41rem;
+  max-height: 30rem;
+  border-radius: 2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  padding: 4rem 2rem;
+}
+
+.fM .container {
+  padding: 4rem 0;
+  height: 60rem;
+}
+
+.form-map {
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form,
+.map {
+  flex: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form input,
+.form textarea {
+  width: 90%;
+  display: block;
+  margin: 1rem 0;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  background-color: #e2e2e2;
+}
+
+.form .btn {
+  border-radius: 0.5rem;
+}
+
+.map {
+  width: 100%;
+  height: 40rem;
+  border: 2px solid red;
+}
+
 @media all and (max-width: 1090px) {
   .latestarticles--card {
     width: 30rem;
@@ -637,6 +749,24 @@ section {
 
   .contacts {
     flex-direction: column;
+  }
+
+  .abt-main {
+    flex-direction: column;
+  }
+
+  .form-map {
+    flex-direction: column;
+  }
+
+  .form input,
+  .form textarea {
+    width: 100%;
+  }
+
+  .map {
+    width: 100%;
+    height: 20rem;
   }
 }
 

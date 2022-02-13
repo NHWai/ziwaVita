@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>About</title>
+  </head>
+  <body>
+    <section class="navSection marginLa">
+      <div class="container nav">
+        <div class="nav--logo">
+          <img class="nav--logo--img" src="img/logo.png" />
+          <p class="nav--logo--tag">Your Health Mate-Sway</p>
+          <div class="burger--icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </div>
+
+        <ul class="nav--menu">
+          <li class="nav--menu--link"><a class="a" href="#">Home</a></li>
+          <li class="nav--menu--link drop">
+            <a class="a" href="#"
+              >ကျန်းမာ‌ရေးဆောင်းပါးများ
+              <i class="fas fa-sort-down drop--icon"></i
+            ></a>
+            <ul class="menuList--drop">
+              <li>
+                <a href="#">
+                  COVID-19 အကြောင်းသိကောင်းစရာများနှင့် နောက်ဆုံးရအချက်အလက်များ
+                </a>
+              </li>
+              <li><a href="#"> အထွေထွေကျန်းမာရေးဆောင်းပါးများ</a></li>
+              <li>
+                <a href="#">မျိုးဆက်ပွားကျန်းမာရေးဆိုင်ရာ ဆောင်းပါးများ</a>
+              </li>
+              <li><a href="#">အသက်ရှူလမ်းကြောင်းဆိုင်ရာရောဂါများ</a></li>
+              <li><a href="#">စိတ်ကျန်းမာရေးဆိုင်ရာဆောင်းပါးများ</a></li>
+              <li><a href="#">အလှအပနှင့်လူနေမှုပုံစံ</a></li>
+            </ul>
+          </li>
+          <li class="nav--menu--link"><a class="a" href="#">About Us</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="abt-hero">
+      <div class="abt-hero-overlay"></div>
+      <h2 class="secondaryHeader">About Us</h2>
+    </section>
+
+    <section class="abt">
+      <div class="container">
+        <div class="abt-main">
+          <div class="abt-main-img">
+            <img src="img/About-Z.png" alt="" />
+          </div>
+          <div class="abt-main-description">
+            <p class="redcard">
+              Founded in Jan 2021, Ziwa Vita (ဇီဝဗီတ) inspires to bridge the gap
+              between Myanmar community and healthier lifestyle. <br />
+              Promote health literacy in Myanmar with reliable, evidence-based
+              and up-to-date health-related contents.
+            </p>
+          </div>
+        </div>
+
+        <div class="abt-main">
+          <div class="abt-main-description">
+            <p class="bluecard">
+              We are dedicated to challenge the digital health market in Myanmar
+              with our aspiration and promising well-designed contents to become
+              one of the leading digital health platforms for our valuable
+              audience and partners.
+            </p>
+          </div>
+          <div class="abt-main-img">
+            <img src="img/About-V.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fM">
+      <div class="container">
+        <h3 class="secondaryHeader" style="text-align: center">Contact Us</h3>
+        <div class="form-map">
+          <div class="form">
+            <form>
+              <input type="text" id="name" placeholder="Name" required />
+              <input type="email" id="email" placeholder="Email" required />
+              <input type="text" id="phone" placeholder="Phone" required />
+              <input type="text" id="subject" placeholder="Subject" />
+              <textarea placeholder="Message" id="message" rows="4"></textarea>
+              <button class="btn" type="submit">Send</button>
+            </form>
+          </div>
+          <div class="map" id="map"></div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="footer">
+        <p>
+          Ziwa Vita © 2021. All Rights Reserved. <br />
+
+          Website Development By BD Team (Australia)
+        </p>
+      </div>
+    </section>
+    <script>
+      function initMap() {
+        var options = {
+          zoom: 8,
+          center: { lat: 16.8409, lng: 96.1735 },
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), options);
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMqBTNPNGYUxmELy-erCcF4F1TCaYFOfI&callback=initMap&libraries=&v=weekly"
+    ></script>
+  </body>
+</html>
